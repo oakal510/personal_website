@@ -1,0 +1,6 @@
+TODO
+- Update bio
+- Update Resume
+- Update head shot
+- Create projects page
+- Create Speaking Engagements page 
