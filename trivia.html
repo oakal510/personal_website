@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="trivia_style.css" rel="stylesheet">
+        <title>Moldova Trivia Challenge!</title>
+        <script>
+            function insertText(id, text) {
+                var elem = document.getElementById(id);
+                elem.innerHTML = text;
+            }
+
+            function changeColorAddText(ans_checker, id) {
+                var elem = document.getElementById(id);
+                correctMCAnswers = ["q1a2", "q2a3", "q3a4"]
+                if (correctMCAnswers.includes(id)) {
+                    insertText(ans_checker, "Correct! ");
+                    elem.style.backgroundColor = 'green';
+                }
+                else {
+                    insertText(ans_checker, "Incorrect! ")
+                    elem.style.backgroundColor = 'red';
+                }
+            }
+
+            function checkAnswer(ans_checker, id) {
+                fcq = id[id.length - 1];
+                var value = document.getElementById(id).value;
+                value = value.toLowerCase();
+                q1AcceptedValues = ['romanian', 'rumanian', 'limba romana', 'romana', 'limba română', 'română'];
+                q2AcceptedValues = ['romania', 'ukraine'];
+                q3AcceptedValues = ['o-zone'];
+                if (parseInt(fcq) == 1) {
+                    if (q1AcceptedValues.includes(value)) {
+                        insertText(ans_checker, "Correct! ");
+                    }
+                    else {
+                        insertText(ans_checker, "Incorrect! ");
+                    }
+                }
+                else if (parseInt(fcq) == 2) {
+                    if (q2AcceptedValues.includes(value)) {
+                        insertText(ans_checker, "Correct! ");
+                    }
+                    else {
+                        insertText(ans_checker, "Incorrect! ");
+                    }
+                }
+                else {
+                    if (q3AcceptedValues.includes(value)) {
+                        insertText(ans_checker, "Correct! ");
+                    }
+                    else {
+                        insertText(ans_checker, "Incorrect! ");
+                    }
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Moldova Trivia Challenge!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice Questions</h2>
+                <hr>
+                <h3>
+                What is the capital of Moldova?
+                </h3>
+                <div id="q1_checker" style="padding-bottom: 30px;">
+                </div>
+                <div>
+                    <button id="q1a1" onclick="changeColorAddText('q1_checker', 'q1a1');">Zagreb</button>
+                    <button id="q1a2" onclick="changeColorAddText('q1_checker','q1a2');">Chisinau</button>
+                    <button id="q1a3" onclick="changeColorAddText('q1_checker','q1a3');">Balti</button>
+                    <button id="q1a4" onclick="changeColorAddText('q1_checker','q1a4');">Tiraspol</button>
+                </div>
+                <hr>
+                <h3>
+                In what year did Moldova declare its independence from the Soviet Union?
+                </h3>
+                <div id="q2_checker" style="padding-bottom: 30px;">
+                </div>
+                <div>
+                    <button id="q2a1" onclick="changeColorAddText('q2_checker', 'q2a1');">1997</button>
+                    <button id="q2a2" onclick="changeColorAddText('q2_checker','q2a2');">1989</button>
+                    <button id="q2a3" onclick="changeColorAddText('q2_checker','q2a3');">1991</button>
+                    <button id="q2a4" onclick="changeColorAddText('q2_checker','q2a4');">1992</button>
+                </div>
+                <hr>
+                <h3>
+                What is the name of the Moldovan wine cellar that is also the Guinness World Record holder for having the largest wine cellar in the
+                world with a collection of nearly 2 million bottles of wine?
+                </h3>
+                <div id="q3_checker" style="padding-bottom: 30px;">
+                </div>
+                <div>
+                    <button id="q3a1" onclick="changeColorAddText('q3_checker','q3a1');">Purcari</button>
+                    <button id="q3a2" onclick="changeColorAddText('q3_checker','q3a2');">Nistru-Struguras</button>
+                    <button id="q3a3" onclick="changeColorAddText('q3_checker','q3a3');">Cricova</button>
+                    <button id="q3a4" onclick="changeColorAddText('q3_checker','q3a4');">Milestii Mici</button>
+                </div>
+            </div>
+
+
+            <div class="section">
+                <h2>Part 2: Free Response Questions</h2>
+                <hr>
+                <h3>
+                What is the national language of Moldova?
+                </h3>
+                <form onSubmit="return false;">
+                    <input type="text" id="FCAnswer1">
+                    <button type="submit" value="Submit" onclick="checkAnswer('FC1_checker', 'FCAnswer1');">Submit</button>
+                </form>
+                <div id="FC1_checker">
+                </div>
+                <hr>
+                <h3>
+                Name one country that borders Moldova.
+                </h3>
+                <form onSubmit="return false;">
+                    <input type="text" id="FCAnswer2">
+                    <button type="submit" value="Submit" onclick="checkAnswer('FC2_checker', 'FCAnswer2');">Submit</button>
+                </form>
+                <div id="FC2_checker">
+                </div>
+                <hr>
+                <h3>
+                What is the name of the Moldovan band, which gained global popularity after their song Dragostea
+                Din Tei topped the charts in the early 2000s?
+                </h3>
+                <form onSubmit="return false;">
+                    <input type="text" id="FCAnswer3">
+                    <button type="submit" value="Submit" onclick="checkAnswer('FC3_checker', 'FCAnswer3');">Submit</button>
+                </form>
+                <div id="FC3_checker">
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+        <h4>
+        Want to learn more about Moldova? Check out <a target="_blank" href="https://moldova.md/">Moldova.MD</a>
+        </h4>
+        <h6>
+        Copyright &#169; 2022 Alla Barbalat. All Rights Reserved.
+        </h6>
+        </div>
+    </body>
+</html>
