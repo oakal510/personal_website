@@ -3,4 +3,7 @@ TODO
 - Update Resume
 - Update head shot
 - Create projects page
-- Create Speaking Engagements page 
+- Add option to turn off homepage animation
+- Create Speaking Engagements page
+- Create github action with rsync 
+- Move to flask
